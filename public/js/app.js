@@ -50143,6 +50143,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -50167,6 +50169,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return this.posts;
       }
     }
+  },
+
+  filters: {
+    moment: function (_moment) {
+      function moment(_x) {
+        return _moment.apply(this, arguments);
+      }
+
+      moment.toString = function () {
+        return _moment.toString();
+      };
+
+      return moment;
+    }(function (date) {
+      return moment(date).fromNow();
+    })
   }
 });
 
@@ -50178,10 +50196,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
+  return _c("div", { staticClass: "text-center" }, [
     _c(
       "div",
-      { staticClass: "pull-right" },
+      { staticClass: "float-right" },
       [
         _c(
           "router-link",
@@ -50208,11 +50226,13 @@ var render = function() {
         "tbody",
         _vm._l(_vm.filteredPosts, function(post, index) {
           return _c("tr", [
-            _c("td", [_vm._v(_vm._s(index + 1))]),
+            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(index + 1))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(post.title))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(post.body))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(_vm._f("moment")(post.created_at)))]),
             _vm._v(" "),
             _c(
               "td",
@@ -50220,7 +50240,7 @@ var render = function() {
                 _c(
                   "router-link",
                   {
-                    staticClass: "btn btn-info btn-xs",
+                    staticClass: "btn btn-info btn-sm mr-2",
                     attrs: { to: { name: "Viewpost", params: { id: post.id } } }
                   },
                   [_vm._v("Show")]
@@ -50229,7 +50249,7 @@ var render = function() {
                 _c(
                   "router-link",
                   {
-                    staticClass: "btn btn-warning btn-xs",
+                    staticClass: "btn btn-warning btn-sm mr-2",
                     attrs: { to: { name: "Editpost", params: { id: post.id } } }
                   },
                   [_vm._v("Edit")]
@@ -50238,7 +50258,7 @@ var render = function() {
                 _c(
                   "router-link",
                   {
-                    staticClass: "btn btn-danger btn-xs",
+                    staticClass: "btn btn-danger btn-sm",
                     attrs: {
                       to: { name: "Deletepost", params: { id: post.id } }
                     }
@@ -50261,13 +50281,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("#")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Post Title")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Post Title")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Post body")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Post body")]),
         _vm._v(" "),
-        _c("th", { staticClass: "col-md-2" }, [_vm._v("Actions")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Created")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Actions")])
       ])
     ])
   }
@@ -50888,7 +50910,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -50907,6 +50929,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       _this.post = data;
     });
+  },
+
+
+  filters: {
+    moment: function (_moment) {
+      function moment(_x) {
+        return _moment.apply(this, arguments);
+      }
+
+      moment.toString = function () {
+        return _moment.toString();
+      };
+
+      return moment;
+    }(function (date) {
+      return moment(date).fromNow();
+    })
   }
 });
 
@@ -50920,22 +50959,25 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "card" },
+    {
+      staticClass: "card border-success text-center mx-auto mt-4",
+      staticStyle: { "max-width": "18rem" }
+    },
     [
-      _c("h3", [_vm._v("Title: " + _vm._s(_vm.post.title))]),
+      _c("div", { staticClass: "card-header bg-transparent border-success" }, [
+        _vm._v(_vm._s(_vm.post.title))
+      ]),
       _vm._v(" "),
-      _c("strong", [_vm._v("Body : ")]),
+      _c("div", { staticClass: "card-body text-success" }, [
+        _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.post.body))])
+      ]),
       _vm._v(" "),
-      _c("div", [_vm._v("\n    " + _vm._s(_vm.post.body) + "\n  ")]),
-      _vm._v(" "),
-      _c("br"),
-      _c("br"),
-      _vm._v(" "),
-      _c("span", { staticClass: "glyphicon glyphicon-arrow-left" }),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/" } }, [_vm._v("Back to post list")])
-    ],
-    1
+      _c(
+        "div",
+        { staticClass: "card-footer bg-transparent border-success text-muted" },
+        [_vm._v("Created: " + _vm._s(_vm._f("moment")(_vm.post.created_at)))]
+      )
+    ]
   )
 }
 var staticRenderFns = []
