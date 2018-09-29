@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="/"><h3 class="text-muted mt-4">Vue.js CRUD With Laravel 5.5 application</h3></a>
+        <a href="/" class="text-center"><h3 class="text-muted mt-4">Vue.js CRUD With Laravel 5.5 application</h3></a>
 
 
         <section id="app">
