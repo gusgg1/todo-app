@@ -50219,59 +50219,77 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("table", { staticClass: "table table-bordered" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.filteredPosts, function(post, index) {
-          return _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(index + 1))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(post.title))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(post.body))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm._f("moment")(post.created_at)))]),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-info btn-sm mr-2",
-                    attrs: { to: { name: "Viewpost", params: { id: post.id } } }
-                  },
-                  [_vm._v("Show")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-warning btn-sm mr-2",
-                    attrs: { to: { name: "Editpost", params: { id: post.id } } }
-                  },
-                  [_vm._v("Edit")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-danger btn-sm",
-                    attrs: {
-                      to: { name: "Deletepost", params: { id: post.id } }
-                    }
-                  },
-                  [_vm._v("Delete")]
-                )
-              ],
-              1
-            )
-          ])
-        })
-      )
-    ])
+    _c(
+      "table",
+      { staticClass: "table table-bordered", staticStyle: { height: "100px" } },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.filteredPosts, function(post, index) {
+            return _c("tr", [
+              _c(
+                "th",
+                { staticClass: "align-middle", attrs: { scope: "row" } },
+                [_vm._v(_vm._s(index + 1))]
+              ),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-middle" }, [
+                _vm._v(_vm._s(post.title))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-middle" }, [
+                _vm._v(_vm._s(post.body))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-middle" }, [
+                _vm._v(_vm._s(_vm._f("moment")(post.created_at)))
+              ]),
+              _vm._v(" "),
+              _c(
+                "td",
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-info btn-sm mr-2 mb-2",
+                      attrs: {
+                        to: { name: "Viewpost", params: { id: post.id } }
+                      }
+                    },
+                    [_vm._v("Show")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-warning btn-sm mr-2 mb-2",
+                      attrs: {
+                        to: { name: "Editpost", params: { id: post.id } }
+                      }
+                    },
+                    [_vm._v("Edit")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-danger btn-sm mb-2",
+                      attrs: {
+                        to: { name: "Deletepost", params: { id: post.id } }
+                      }
+                    },
+                    [_vm._v("Delete")]
+                  )
+                ],
+                1
+              )
+            ])
+          })
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -50281,15 +50299,25 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _c("th", { staticClass: "align-middle", attrs: { scope: "col" } }, [
+          _vm._v("#")
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Post Title")]),
+        _c("th", { staticClass: "align-middle", attrs: { scope: "col" } }, [
+          _vm._v("Post Title")
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Post body")]),
+        _c("th", { staticClass: "align-middle", attrs: { scope: "col" } }, [
+          _vm._v("Post body")
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Created")]),
+        _c("th", { staticClass: "align-middle", attrs: { scope: "col" } }, [
+          _vm._v("Created")
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Actions")])
+        _c("th", { staticClass: "align-middle", attrs: { scope: "col" } }, [
+          _vm._v("Actions")
+        ])
       ])
     ])
   }
